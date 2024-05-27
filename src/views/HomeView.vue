@@ -374,7 +374,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">聯絡方式:<img src="../assets/image/436169_phone_call_telephone_icon.png">07-0655881|<img src="../assets/image/4102577_applications_line_media_social_icon.png">DR.rick-roll</p>
+            <p class="m-0 text-center text-white">聯絡方式:123<img src="../assets/image/436169_phone_call_telephone_icon.png">07-0655881|<img src="../assets/image/4102577_applications_line_media_social_icon.png">DR.rick-roll</p>
         </div>
     </footer>
 </template>
