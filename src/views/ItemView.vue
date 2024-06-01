@@ -91,7 +91,7 @@ export default {
         await fetch(Jdon).then(res => res.json()).then(data => {
             let MayDay = data.Home.filter(item => item.id == this.$route.query.userID);
             for (let i = 0; i < MayDay[0].img.length; i++) {
-                MayDay[0].img[i] = new URL(MayDay[0].img[i], import.meta.url);
+                MayDay[0].img[i] = new URL(`../assets/image/${MayDay[0].img[i]}`, import.meta.url);
             }
             this.useful = MayDay[0];
         })

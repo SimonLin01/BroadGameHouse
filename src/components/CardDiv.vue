@@ -55,7 +55,7 @@ export default {
         console.log(this.ing);
 
         for (let i = 0; i < img.length; i++) {
-            img[i] = new URL(img[i], import.meta.url);
+            img[i] = new URL(`../assets/image/${img[i]}`, import.meta.url);
         }
     }
 }

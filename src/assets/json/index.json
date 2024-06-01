@@ -1,34 +1,33 @@
 {
-    "Home":[
-        {
-            "id":1,
-            "name":"爆炸貓",
-            "img":["../assets/image/Exploding Kittens.jpg","../assets/image/Exploding Kittens inside.jpg"],
-            "price":"NT$60.00 - NT$80.00",
-            "offer":"NT$60.00 - NT$80.00",
-            "gameTag":"心機遊戲",
-            "rule":"#",
-            "caption":"This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+    "Home": [{
+            "id": 1,
+            "name": "爆炸貓",
+            "img": ["Exploding Kittens.jpg", "Exploding Kittens inside.jpg"],
+            "price": "NT$60.00 - NT$80.00",
+            "offer": "NT$60.00 - NT$80.00",
+            "gameTag": "心機遊戲",
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
         },
         {
-            "id":2,
-            "name":"山中小屋",
-            "img":["../assets/image/Betrryal at House on the Hell inside.jpg","../assets/image/Betrryal-at-House-on-the-Hell.jpg"],
-            "price":"NT$200.00",
-            "offer":"NT$180.00",
-            "gameTag":"策略遊戲",
-            "rule":"#",
-            "caption":"This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer." 
+            "id": 2,
+            "name": "山中小屋",
+            "img": ["Betrryal at House on the Hell inside.jpg", "Betrryal-at-House-on-the-Hell.jpg"],
+            "price": "NT$200.00",
+            "offer": "NT$180.00",
+            "gameTag": "策略遊戲",
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
         },
         {
-            "id":3,
-            "name":"ROOT 茂林源記",
-            "img":["../assets/image/root.jpg","../assets/image/root borde.jpg"],
-            "price":"NT$350.00 ",
-            "offer":"NT$250.00",
-            "gameTag":["陣營遊戲","策略遊戲"],
-            "rule":"#",
-            "caption":"This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."  
+            "id": 3,
+            "name": "ROOT 茂林源記",
+            "img": ["root.jpg", "root borde.jpg"],
+            "price": "NT$350.00 ",
+            "offer": "NT$250.00",
+            "gameTag": ["陣營遊戲", "策略遊戲"],
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
         }
     ]
 }
