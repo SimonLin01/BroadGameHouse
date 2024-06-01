@@ -1,19 +1,20 @@
 <template>
     <div class="card h-100" id="abgne_fade_pic">
         <!-- Product image-->
-        <div id="carouselExampleControls01" class="carousel slide" data-bs-ride="carousel">
+        <div :id="'carouselExampleControls' + thisCard.id" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
 
-                <div class="carousel-item" v-for="(item, index) in thisCard" :key="index" :class="{}">
-                    <img class="d-block w-100">
+                <div class="carousel-item" v-for="(item, index) in thisCard.img" :key="index"
+                    :class="[index == 0 ? 'active' : '']">
+                    <img class="d-block w-100" height="150px" :src="item">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls01"
+            <button class="carousel-control-prev" type="button" :data-bs-target="'#carouselExampleControls' + thisCard.id"
                 data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls01"
+            <button class="carousel-control-next" type="button" :data-bs-target="'#carouselExampleControls' + thisCard.id"
                 data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -31,7 +32,8 @@
         <!-- Product actions-->
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-between">
             <div class="text-center">
-                <RouterLink to='/item'><span class="btn btn-outline-dark mt-auto">查看詳情</span></RouterLink>
+                <RouterLink :to="'/item?userID=' + thisCard.id"><span class="btn btn-outline-dark mt-auto">查看詳情</span>
+                </RouterLink>
             </div>
             <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">加入購物車</a>
             </div>
@@ -40,25 +42,23 @@
 </template>
 
 <script>
-export default{
-    props:["ing"],
+export default {
+    props: ["ing"],
     data() {
         return {
             thisCard: {},
         }
     },
-    created(){
-        this.thisCard = ing;
+    created() {
+        this.thisCard = this.ing;
         const img = this.thisCard.img;
+        console.log(this.ing);
 
-
-        for(let i=0; i<img.length; i++){
+        for (let i = 0; i < img.length; i++) {
             img[i] = new URL(img[i], import.meta.url);
         }
     }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
