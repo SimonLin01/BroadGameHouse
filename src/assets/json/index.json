@@ -28,6 +28,56 @@
             "gameTag": ["陣營遊戲", "策略遊戲"],
             "rule": "#",
             "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        {
+            "id": 4,
+            "name": "UNO 經典版",
+            "img": ["UNO.jpg", "uno inside.png"],
+            "price": "NT$40.00 ",
+            "offer": "NT$40.00",
+            "gameTag": ["派對遊戲"],
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        {
+            "id": 5,
+            "name": "乾杯",
+            "img": ["raise-your-goblets.jpg", "raise-your-goblets inside.png"],
+            "price": "NT$160.00 ",
+            "offer": "NT$140.00",
+            "gameTag": ["心機遊戲"],
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        {
+            "id": 6,
+            "name": "花見小路",
+            "img": ["Hanamikoji.jpg", "Hanamikoji inside.jpg"],
+            "price": "NT$120.00 - NT$280.00",
+            "offer": "NT$120.00 - NT$280.00",
+            "gameTag": ["策略遊戲"],
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        {
+            "id": 7,
+            "name": "終極審判 電車難題",
+            "img": ["Trial by Trolley.png", "Trial by Trollry inside.jpg"],
+            "price": "NT$120.00",
+            "offer": "NT$100.00",
+            "gameTag": ["派對遊戲"],
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+        },
+        {
+            "id": 8,
+            "name": "狼人殺",
+            "img": ["the-werewolves2.jpg", "the-werewolves.jpg"],
+            "price": "NT$60.00",
+            "offer": "NT$60.00",
+            "gameTag": ["陣營遊戲"],
+            "rule": "#",
+            "caption": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
         }
     ]
 }
