@@ -6,8 +6,11 @@ import AboutView from '../views/AboutView.vue'
 
 
 const router = createRouter({
+    // history: createWebHistory(
+    //     import.meta.env.BASE_URL),
     history: createWebHistory(
-        import.meta.env.BASE_URL),
+        "/113-1-13"
+    ),
     routes: [{
         path: '/',
         name: 'home',
