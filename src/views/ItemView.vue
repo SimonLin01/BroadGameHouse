@@ -32,7 +32,9 @@
                         <p class="card-text">標籤：<a href="#">{{useful.gameTag}}</a></p>
                         <p class="card-text">遊戲說明：<a href="#">{{useful.rule}}</a></p>
                         <p class="card-text">價格：{{useful.price}}</p>
+                        <RouterLink to="/cart">
                         <button class="btn btn-primary btn-lg">加入購物車</button>
+                        </RouterLink>
                         <p class="card-text"><small class="text-muted">商品圖片井供參考，一切以實物為準</small></p>
                     </div>
                 </div>

@@ -35,29 +35,32 @@
                 <RouterLink :to="'/item?userID=' + thisCard.id"><span class="btn btn-outline-dark mt-auto">查看詳情</span>
                 </RouterLink>
             </div>
-            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">加入購物車</a>
+            <div class="text-center">
+                <RouterLink to="/cart"><span class="btn btn-outline-dark mt-auto">加入購物車</span></RouterLink>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
     props: ["ing"],
     data() {
         return {
             thisCard: {},
-        }
+        };
     },
     created() {
         this.thisCard = this.ing;
         const img = this.thisCard.img;
         console.log(this.ing);
-
         for (let i = 0; i < img.length; i++) {
             img[i] = new URL(`../assets/image/${img[i]}`, import.meta.url);
         }
-    }
+    },
+    components: { RouterLink }
 }
 </script>
 

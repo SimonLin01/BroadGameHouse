@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ItemView from '../views/ItemView.vue'
 import SearchView from '../views/SearchView.vue'
 import AboutView from '../views/AboutView.vue'
+import CartView from '../views/CartView.vue'
 
 
 const router = createRouter({
@@ -27,6 +28,10 @@ const router = createRouter({
         path: '/about',
         name: 'About',
         component: AboutView
+    }, {
+        path: '/cart',
+        name: 'Cart',
+        component: CartView
     }]
 })
 

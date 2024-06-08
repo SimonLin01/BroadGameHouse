@@ -79,11 +79,13 @@
                     </li> -->
                 </ul>
                 <form class="d-flex">
-                    <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-cart-fill me-1"></i>
-                        購物車
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button>
+                    <RouterLink to="/Cart">
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            購物車
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </RouterLink>
                 </form>
             </div>
         </div>
@@ -96,7 +98,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .router-link-active{
-        background-color: #b6d3f0;
-    }
+.router-link-active {
+    background-color: #b6d3f0;
+}
 </style>
