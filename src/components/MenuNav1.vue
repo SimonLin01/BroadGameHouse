@@ -24,16 +24,16 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=party">
                                 <li class="dropdown-item">派對遊戲</li>
                             </RouterLink>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=strategy">
                                 <li class="dropdown-item">策略遊戲</li>
                             </RouterLink>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=arena">
                                 <li class="dropdown-item">陣營遊戲</li>
                             </RouterLink>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=heart">
                                 <li class="dropdown-item">心機遊戲</li>
                             </RouterLink>
                             <li>

@@ -2,9 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <p>
-                <h1>所有遊戲</h1>
-                </p>
+                <h3 class="rounded-4 border warning mb-3">
+                    <p class="badge bg-warning rounded-button-0 p-3 ms-4 fs-5">篩選結果</p>
+                </h3>
+                <div>
+                    <span class="badge bg-danger fs-5 m-2" v-for="(item, index) in filterList" :key="index"
+                        @click="filter(item)">{{ item }}
+                        <button type="button" class="btn-close btn-close-white" aria-label="Close">
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <section class="py-5">
                     <div class="container px-4 px-lg-5 mt-5">
                         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -16,10 +25,6 @@
                 </section>
             </div>
             <div class="col-md-12">
-                <p>
-                <h1>桌遊週邊</h1>
-                </p>
-                
             </div>
         </div>
     </div>
@@ -34,10 +39,22 @@ export default {
     data() {
         return {
             list: {},
+            filterList: [],
         }
     },
     created() {
-
+    },
+    methods: {
+        showTag() {
+            this.filterList = []
+            Object.values(this.$route.query).forEach(item => {
+                if (item !== 'all') {
+                    if (item) {
+                        this.filterList.push(item)
+                    }
+                }
+            })
+        }
     },
     async mounted() {
         const listURL = new URL("../assets/json/index.json", import.meta.url);
@@ -49,6 +66,12 @@ export default {
 
         this.list = index;
     },
+    watch: {
+        "$route": {
+            handler: "showTag",
+            deep: true
+        }
+    }
 }
 </script>
 <style lang="">
