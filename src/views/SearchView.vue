@@ -7,7 +7,7 @@
                 </h3>
                 <div>
                     <span class="badge bg-danger fs-5 m-2" v-for="(item, index) in filterList" :key="index"
-                        @click="filter(item)">{{ item }}
+                        @click="close(item)">{{ item }}
                         <button type="button" class="btn-close btn-close-white" aria-label="Close">
                         </button>
                     </span>
@@ -54,7 +54,10 @@ export default {
                     }
                 }
             })
-        }
+        },
+        close(index) {
+            this.filterList = this.filterList.filter(item => item !== index)
+        },
     },
     async mounted() {
         const listURL = new URL("../assets/json/index.json", import.meta.url);
