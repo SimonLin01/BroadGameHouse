@@ -47,7 +47,7 @@
                 <p><h3>評論</h3></p>
                 <div class=px-md-3>
                     <div class="d-flex align-item-start mt-2">
-                        <img class="rounded-circle" src="../assets/image/436169_phone_call_telephone_icon.png" width="50" height="50">
+                        <img class="rounded-circle" src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50" height="50">
                         <div>
                             <div>
                                 <p class="h4 ps-2 pt-2 fw-bolder">壹號</p>
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="d-flex align-item-start mt-2">
-                                <img class="rounded-circle" src="../assets/image/436169_phone_call_telephone_icon.png" width="50" height="50">
+                                <img class="rounded-circle" src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50" height="50">
                                 <div>
                                     <p class="h4 ps-2 pt-2 fw-bolder">貳號</p>
                                     <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati adipisci nisi ipsam quis sint perspiciatis, praesentium aperiam neque consequuntur ab excepturi necessitatibus laudantium, vel minima ea voluptates asperiores vero?</p>

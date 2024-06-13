@@ -11,9 +11,9 @@
                     <RouterLink to="/">
                         <li class="nav-item"><span class="nav-link" aria-current="page">首頁</span></li>
                     </RouterLink>
-                    <RouterLink to="/about">
+                    <!-- <RouterLink to="/about">
                         <li class="nav-item nav-link">關於</li>
-                    </RouterLink>
+                    </RouterLink> -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">所有商品</a>
@@ -36,10 +36,10 @@
                             <RouterLink to="/allgame?type=heart">
                                 <li class="dropdown-item">心機遊戲</li>
                             </RouterLink>
-                            <li>
+                            <!-- <li>
                                 <hr class="dropdown-divider" />
-                            </li>
-                            <RouterLink to="/allgame">
+                            </li> -->
+                            <!-- <RouterLink to="/allgame">
                                 <li class="dropdown-item">桌遊週邊</li>
                             </RouterLink>
                             <li>
@@ -53,7 +53,7 @@
                             </RouterLink>
                             <RouterLink to="/">
                                 <li class="dropdown-item">牌套</li>
-                            </RouterLink>
+                            </RouterLink> -->
                         </ul>
                     </li>
                     <!-- <li class="nav-item dropdown">
