@@ -2,8 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ItemView from '../views/ItemView.vue'
 import SearchView from '../views/SearchView.vue'
-import AboutView from '../views/AboutView.vue'
 import CartView from '../views/CartView.vue'
+import CheckedView from '../views/CheckedView.vue'
+import CheckinView from '../views/CheckinView.vue'
+import CheckoutView from '../views/CheckoutView.vue'
+import LoginView from '../views/LoginView.vue'
 
 
 const router = createRouter({
@@ -25,13 +28,25 @@ const router = createRouter({
         name: 'AllGame',
         component: SearchView
     }, {
-        path: '/about',
-        name: 'About',
-        component: AboutView
-    }, {
         path: '/cart',
         name: 'Cart',
         component: CartView
+    }, {
+        path: '/checked',
+        name: 'Checked',
+        component: CheckedView
+    }, {
+        path: '/checkin',
+        name: 'Checkin',
+        component: CheckinView
+    }, {
+        path: '/checkout',
+        name: 'Checkout',
+        component: CheckoutView
+    }, {
+        path: '/login',
+        name: 'Login',
+        component: LoginView
     }]
 })
 

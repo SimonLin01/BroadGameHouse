@@ -1,7 +1,7 @@
 <template>
     <div class="text-center">
-        <h1>購物車</h1>
-        <p>商品確認</p>
+        <h2>確認商品內容</h2>
+        <p>確認金額:{{ total }}</p>
     </div>
     <div class="card mb-3" v-for="(item, index) in list" :key="index">
         <div class="row g-0">
@@ -13,31 +13,26 @@
                     <h5 class="card-title">{{ item.name }}</h5>
                     <p class="card-text"><small class="text-muted">NT${{ item.price }}</small></p>
                     <div class="d-flex">
-                        <button class="btn btn-outline-primary" type="button" @click="count++">+</button>
                         <span class="mx-3">{{ item.count }}</span>
-                        <button class="btn btn-outline-danger" type="button" @click="decrement">-</button>
                     </div>
-                    <button class="btn btn-primary mt-3" type="button" @click="remove(item.id)">移除商品</button>
                 </div>
             </div>
         </div>
-    </div>ws
-    <div class="text-center">
-        <h3>總金額：NT${{ total }}</h3>
-        <RouterLink to="/checked">
-            <button class="btn btn-primary btn-lg mt-3" type="button">確認結帳</button>
-        </RouterLink>
     </div>
-    <div v-show="list.length == 0" class="text-center">
-        <h3>這裡真是空曠</h3>
-        <p>快去挑選新商品來填滿這裡</p>
-        <RouterLink to="/allgame">
-            <button class="btn btn-primary btn-lg" type="button">點這裡挑選新商品</button>
-        </RouterLink>
+    <div class="text-center">
+        <h3>還有想買的商品:</h3>
+        <div>
+            <RouterLink to="/allgame">
+                <button class="btn btn-success btn-lg mt-3" type="button">返回商城</button>
+            </RouterLink>
+            <RouterLink to="/checkin">
+                <button class="btn btn-primary btn-lg mt-3" type="button">確認結帳</button>
+            </RouterLink>
+        </div>
     </div>
 </template>
 <script>
-import { RouterLink } from 'vue-router'
+import { RouterLink } from 'vue-router';
 
 
 export default {
@@ -65,19 +60,6 @@ export default {
                 total += item.price * item.count;
             });
             return total;
-        }
-    },
-    methods: {
-        decrement() {
-            if (this.count <= 1) {
-                this.count = 1;
-            }
-            else {
-                this.count--;
-            }
-        },
-        remove(id) {
-            this.list = this.list.filter(item => item.id !== id);
         }
     },
     components: { RouterLink }
