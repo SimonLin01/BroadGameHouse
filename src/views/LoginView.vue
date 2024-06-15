@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>關於本站</h1>
+        <h1>登入</h1>
     </div>
     <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat iure dignissimos eius molestias dolorum est
