@@ -22,7 +22,22 @@
                 <h4>信用卡卡號</h4>
                 <input type="text" class="form-control" placeholder="請輸入信用卡卡號">
                 <h4>有效期限</h4>
-                <input type="text" class="form-control" placeholder="MM/YY">
+                <div class="col-md-4 order-5">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>年份</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-md-4 order-1">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>月份</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
                 <h3>帳單資訊</h3>
                 <h4>姓名</h4>
                 <input type="text" class="form-control" placeholder="請輸入姓名">

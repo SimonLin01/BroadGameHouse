@@ -79,6 +79,13 @@
                     </li> -->
                 </ul>
                 <form class="d-flex">
+                    <RouterLink to="/login">
+                        <button class="btn btn-outline-dark" type="submit">
+                            登入
+                        </button>
+                    </RouterLink>
+                </form>
+                <form class="d-flex">
                     <RouterLink to="/Cart">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>

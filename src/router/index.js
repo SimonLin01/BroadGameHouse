@@ -7,6 +7,7 @@ import CheckedView from '../views/CheckedView.vue'
 import CheckinView from '../views/CheckinView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
 import LoginView from '../views/LoginView.vue'
+import SignupView from '../views/SignupView.vue'
 
 
 const router = createRouter({
@@ -47,6 +48,10 @@ const router = createRouter({
         path: '/login',
         name: 'Login',
         component: LoginView
+    },{
+        path: '/signup',
+        name: 'Signup',
+        component: SignupView
     }]
 })
 
