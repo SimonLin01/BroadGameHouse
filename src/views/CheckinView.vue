@@ -22,20 +22,20 @@
                 <h4>信用卡卡號</h4>
                 <input type="text" class="form-control" placeholder="請輸入信用卡卡號">
                 <h4>有效期限</h4>
-                <div class="col-md-4 order-5">
+                <div class="col-md-12">
                     <select class="form-select" aria-label="Default select example">
                         <option selected>年份</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">2024年</option>
+                        <!-- <option value="2">Two</option>
+                        <option value="3">Three</option> -->
                     </select>
                 </div>
-                <div class="col-md-4 order-1">
+                <div class="col-md-12">
                     <select class="form-select" aria-label="Default select example">
                         <option selected>月份</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="1">6月</option>
+                        <option value="2">7月</option>
+                        <option value="3">8月</option>
                     </select>
                 </div>
                 <h3>帳單資訊</h3>
