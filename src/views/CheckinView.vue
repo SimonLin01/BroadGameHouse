@@ -6,7 +6,7 @@
                 <button @click="mails = 'mailsout'" class="btn btn-primary btn-lg mt-3" type="button">貨到付款</button>
                 <button @click="mails = 'CIS'" class="btn btn-danger btn-lg mt-3" type="button">超商代碼</button>
                 <button @click="mails = 'card'" class="btn btn-success btn-lg mt-3" type="button">信用卡</button>
-                <button @click="mails = 'ATM'" class="btn btn-warning btn-lg mt-3" type="button">ATM轉帳</button>
+                <!-- <button @click="mails = 'ATM'" class="btn btn-warning btn-lg mt-3" type="button">ATM轉帳</button> -->
             </div>
             <div v-show="mails === 'mailsout'">
                 <h3>寄送地點:</h3>
