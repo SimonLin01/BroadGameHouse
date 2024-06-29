@@ -63,9 +63,6 @@ export default {
         const listURL = new URL("../assets/json/index.json", import.meta.url);
         const index = await fetch(listURL).then(res => res.json());
 
-        for (let i = 0; i < index.Home[i].img.length; i++) {
-            console.log(index.Home[i].img[0]);
-        }
 
         this.list = index;
     },

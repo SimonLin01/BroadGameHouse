@@ -36,7 +36,8 @@
                 </RouterLink>
             </div>
             <div class="text-center">
-                <RouterLink to="/cart"><span class="btn btn-outline-dark mt-auto">加入購物車</span></RouterLink>
+                <!-- <RouterLink to="/cart"><span class="btn btn-outline-dark mt-auto">加入購物車</span></RouterLink> -->
+                <Modal>加入購物車</Modal>
             </div>
         </div>
     </div>
@@ -44,7 +45,7 @@
 
 <script>
 import { RouterLink } from 'vue-router';
-
+import Modal from './Modal.vue';
 export default {
     props: ["ing"],
     data() {
@@ -60,7 +61,7 @@ export default {
             img[i] = new URL(`../assets/image/${img[i]}`, import.meta.url);
         }
     },
-    components: { RouterLink }
+    components: { Modal }
 }
 </script>
 
