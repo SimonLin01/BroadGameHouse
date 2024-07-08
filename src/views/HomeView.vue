@@ -1,6 +1,6 @@
 <template>
-  <!-- Header-->
-  <header class="bg-dark py-5">
+    <!-- Header-->
+    <header class="bg-dark py-5">
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">桌遊小屋</h1>
@@ -21,7 +21,9 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">聯絡方式:<img src="../assets/image/436169_phone_call_telephone_icon.png">07-0655881|<img src="../assets/image/4102577_applications_line_media_social_icon.png">DR.rick-roll</p>
+            <p class="m-0 text-center text-white">聯絡方式:<img
+                    src="../assets/image/436169_phone_call_telephone_icon.png">07-0655881|<img
+                    src="../assets/image/4102577_applications_line_media_social_icon.png">DR.rick-roll</p>
         </div>
     </footer>
 </template>
@@ -29,25 +31,22 @@
 import { RouterView, RouterLink } from 'vue-router';
 import CardDiv from "../components/CardDiv.vue";
 export default {
-    components:{
+    components: {
         CardDiv,
     },
     data() {
         return {
-            list:{},
+            list: {},
         }
     },
-    created(){
+    created() {
 
     },
-    async mounted(){
+    async mounted() {
         const listURL = new URL("../assets/json/index.json", import.meta.url);
-        const index = await fetch(listURL).then(res=> res.json());
+        const index = await fetch(listURL).then(res => res.json());
 
-        for(let i=0; i< index.Home[i].img.length; i++){
-            console.log(index.Home[i].img[0]);
-        }
-        
+
         this.list = index;
     },
 }
