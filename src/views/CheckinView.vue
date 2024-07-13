@@ -4,9 +4,10 @@
         <div>
             <div>
                 <button @click="mails = 'mailsout'" class="btn btn-primary btn-lg mt-3" type="button">貨到付款</button>
-                <button @click="mails = 'CIS'" class="btn btn-danger btn-lg mt-3" type="button">超商代碼</button>
+                <RouterLink to="/cis">
+                    <button @click="mails = 'CIS'" class="btn btn-danger btn-lg mt-3" type="button">超商取貨付款</button>
+                </RouterLink>
                 <button @click="mails = 'card'" class="btn btn-success btn-lg mt-3" type="button">信用卡</button>
-                <!-- <button @click="mails = 'ATM'" class="btn btn-warning btn-lg mt-3" type="button">ATM轉帳</button> -->
             </div>
             <form ref="form" class="row g-3 needs-validation mt-3 mb-3 text-same" novalidate @submit.prevent="mail">
                 <div v-if="mails === 'mailsout'">
@@ -27,6 +28,9 @@
                         </div>
                     </div>
                     <button class="btn btn-primary btn-lg mt-3" type="submit">確認送出</button>
+                </div>
+                <div>
+
                 </div>
                 <div class="row align-items-center justify-content-between" v-if="mails === 'card'">
                     <h3>請選擇付款方式</h3>

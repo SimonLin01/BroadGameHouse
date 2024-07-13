@@ -8,6 +8,7 @@ import CheckinView from '../views/CheckinView.vue'
 import CheckoutView from '../views/CheckoutView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
+import CISView from '../views/CISView.vue'
 
 
 const router = createRouter({
@@ -48,10 +49,14 @@ const router = createRouter({
         path: '/login',
         name: 'Login',
         component: LoginView
-    },{
+    }, {
         path: '/signup',
         name: 'Signup',
         component: SignupView
+    }, {
+        path: '/cis',
+        name: 'CIS',
+        component: CISView
     }]
 })
 
