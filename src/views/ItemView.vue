@@ -11,7 +11,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item" v-for="(item, index) in useful.img" :key="index"
                                 :class="[index == 0 ? 'active' : '']">
-                                <img class="d-block w-100" height="150px" :src="item">
+                                <img class="d-block w-100" height="250px" :src="item">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" :data-bs-target="'#carouselExampleIndicators' + useful.id" data-bs-slide="prev">
