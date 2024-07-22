@@ -36,24 +36,30 @@
                             <RouterLink to="/allgame?type=heart">
                                 <li class="dropdown-item">心機遊戲</li>
                             </RouterLink>
-                            <!-- <li>
+                            <RouterLink to="/allgame?type=horror">
+                                <li class="dropdown-item">恐怖遊戲</li>
+                            </RouterLink>
+                            <RouterLink to="/allgame?type=detective">
+                                <li class="dropdown-item">推理遊戲</li>
+                            </RouterLink>
+                            <li>
                                 <hr class="dropdown-divider" />
-                            </li> -->
-                            <!-- <RouterLink to="/allgame">
+                            </li>
+                            <RouterLink to="/allgame">
                                 <li class="dropdown-item">桌遊週邊</li>
                             </RouterLink>
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=item">
                                 <li class="dropdown-item">遊戲配件</li>
                             </RouterLink>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=box">
                                 <li class="dropdown-item">收納盒</li>
                             </RouterLink>
-                            <RouterLink to="/">
+                            <RouterLink to="/allgame?type=pack">
                                 <li class="dropdown-item">牌套</li>
-                            </RouterLink> -->
+                            </RouterLink>
                         </ul>
                     </li>
                     <!-- <li class="nav-item dropdown">
