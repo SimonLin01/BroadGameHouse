@@ -6,7 +6,7 @@
           
           <h3>會員註冊</h3>
 
-          <form action="用戶管理.php">
+          <form>
             <input type="text" id="fullname" name="fullname" placeholder="使用者全名" required>
             <div class="tab"></div>
             <input type="text" id="username2" name="username" placeholder="帳號" required>

@@ -84,12 +84,17 @@
                         </ul>
                     </li> -->
                 </ul>
-                <form class="d-flex">
+                <form class="d-flex" v-if="!isLogin">
                     <RouterLink to="/login">
                         <button class="btn btn-outline-dark" type="submit">
                             登入
                         </button>
                     </RouterLink>
+                </form>
+                <form class="d-flex" v-else>
+                    <button class="btn" type="button" @click="!showACC">
+                        <img class="rounded-circle" src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50" height="50" alt="" srcset="">
+                    </button>
                 </form>
                 <form class="d-flex">
                     <RouterLink to="/Cart">
@@ -103,12 +108,32 @@
             </div>
         </div>
     </nav>
-</template>
-<script>
-import { RouterView, RouterLink } from 'vue-router';
-export default {
 
-}
+    <div class="position-absolute end-0 top-100" v-if="isLogin">
+        <div class="bg-white tw-w-[10rem]" v-show="showACC">
+            <RouterLink to="/MainAccount/Account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                個人帳號
+            </RouterLink>
+            <RouterLink to="/Admin/Admin" class="btn btn-outline-secondary btn-lg fw-bold w-100" v-if="isLogin.isAdmin == 0">
+                管理後臺
+            </RouterLink>
+            <RouterLink to="/isLogout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                登出
+            </RouterLink>
+        </div>
+    </div>
+</template>
+<script setup>
+import { RouterView, RouterLink } from 'vue-router';
+import { useAccountStore } from '@/stores/account';
+import { ref, computed } from 'vue';
+
+const accountStore = useAccountStore();
+const isLogin = computed(() => {
+    return accountStore.account;
+})
+
+const showACC = ref(false);
 </script>
 <style lang="scss" scoped>
 .router-link-active {

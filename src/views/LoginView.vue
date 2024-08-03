@@ -10,7 +10,7 @@
 
                 <div class="container">
                     <h3>登入 Login</h3>
-                    <form ref="form" action="用戶管理.php" class="row g-3 needs-validation" novalidate @submit.prevent="login">
+                    <form ref="form" class="row g-3 needs-validation" novalidate @submit.prevent="login">
                         <div class="col-md-10">
                             <label for="validationCustomUsername" class="form-label">帳號</label>
                             <div class="input-group has-validation">
@@ -45,15 +45,28 @@
 <script setup>
 import { RouterLink, useRouter } from 'vue-router';
 import { ref } from 'vue';
+import { useAccountStore } from '../stores/account.js';
+import axios from 'axios';
 
 let router = useRouter();
 let form = ref();
-function login(event) {
+let accountStore = useAccountStore();
+async function login(event) {
     if (!form.value.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
     }else{
-        router.push("/");
+        const BGD = await axios.post('http://localhost:3000/account/login', {
+            username: document.getElementById('validationCustomUsername').value,
+            password: document.getElementById('validationCustomUsername').value
+        },{
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+        console.log(BGD);
     }
     form.value.classList.add('was-validated')
 }
