@@ -189,7 +189,7 @@
         {
             "id":20,
             "name":"未來科幻風骰子 Space Roller",
-            "img":["SpaceRoller.jpg","SpaceRoller-box.jpg"],
+            "img":["Space-Roller.jpg","Space-Roller-box.jpg"],
             "price":"NT$140.00",
             "offer":"NT$140.00",
             "gameTag":"遊戲配件",
@@ -198,7 +198,7 @@
         {
             "id":21,
             "name":"桌遊菜鳥骰塔",
-            "img":["DiceTower.jpg,DiceTower2.jpg"],
+            "img":["DiceTower.jpg","DiceTower2.jpg"],
             "price":"NT$135.00",
             "offer":"NT$135.00",
             "gameTag":"遊戲配件",
@@ -207,11 +207,30 @@
         {
             "id":22,
             "name":"Ugears桌遊配件組 - 命運之塔 (此產品不包含桌遊)",
-            "img":["UgearsDiceTower1.jpg","UgearsDiceTower2.jpg,UgearsDiceTower3.jpg"],
+            "img":["UgearsDiceTower1.jpg","UgearsDiceTower2.jpg","UgearsDiceTower3.jpg"],
             "price":"NT$190.00",
             "offer":"NT$190.00",
             "gameTag":"遊戲配件",
             "caption":"桌遊配件，可疊在一起成為1個骰塔也可以分成4個骰盅。"
+        },
+        {
+            "id":23,
+            "name":"卡片保護套 35pt透明硬卡套（25入）",
+            "img":["35ptPack1.png","35ptPack2.png"],
+            "price":"NT$90.00",
+            "offer":"NT$90.00",
+            "gameTag":"牌套",
+            "caption":"完整密封包覆保護折損不再，高清透明完美展示卡片全貌"
+        },
+        {
+            "id":24,
+            "name":"新天鵝堡 新版薄牌套 新薄套 《內有桌遊牌套尺寸對照表》",
+            "img":["CardPack1.jpg","CardPack.jpg"],
+            "price":"NT$90.00",
+            "offer":"NT$90.00",
+            "gameTag":"牌套",
+            "rule":"#",
+            "caption":"新天鵝堡 新版薄牌套 SWAN PANASIA NEW THIN 薄套再升級，卡片穿新衣囉!※下單時請直接私訊我們告知需要的尺寸喔~內文附現貨尺寸表~!"
         }
     ]
 }
