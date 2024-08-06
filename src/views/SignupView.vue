@@ -7,11 +7,11 @@
           <h3>會員註冊</h3>
 
           <form>
-            <input type="text" id="fullname" name="fullname" placeholder="使用者全名" required>
+            <input type="text" id="fullname" name="fullname" placeholder="使用者全名" v-model="accountData.username" required>
             <div class="tab"></div>
-            <input type="text" id="username2" name="username" placeholder="帳號" required>
+            <input type="text" id="username2" name="username" placeholder="帳號" v-model="accountData.account" required>
             <div class="tab"></div>
-            <input type="text" id="password2" name="password" placeholder="密碼" required>
+            <input type="text" id="password2" name="password" placeholder="密碼" v-model="accountData.password" required>
             <div class="tab"></div>
             <input type="text" id="comfirm_password" name="comfirm_password" placeholder="確認密碼" required>
             <div class="tab"></div>            
@@ -24,8 +24,48 @@
       </div><!-- container2 end-->
     </div><!-- signup_page end--> 
 </template>
-<script>
+<script setup>
+import { RouterLink, useRouter } from 'vue-router';
+import { ref } from 'vue';
+import { useAccountStore } from '../stores/account.js';
+import axios from 'axios';
+import { accountAPI } from '@/assets/js/function.js';
 
+let router = useRouter();
+let form = ref();
+let accountStore = useAccountStore();
+
+const accountData = ref({
+    username: '',
+    account: '',
+    password: '',
+})
+async function login(event) {
+    if (!form.value.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+    }else{
+        const BGD = await axios.post(accountAPI("signup"), {
+            username: accountData.value.username,
+            account: accountData.value.account,
+            password: accountData.value.password
+        },{
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+        if(BGD.data.status == 200){
+            console.log(BGD.data.data);
+            
+        }else{
+            console.log(BGD.data.message);
+        }
+        console.log(BGD);
+    }
+    form.value.classList.add('was-validated')
+}
 </script>
 <style lang="scss" scoped>
     *{

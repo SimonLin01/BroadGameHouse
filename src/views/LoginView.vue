@@ -16,7 +16,7 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 <input type="text" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" required>
+                                    aria-describedby="inputGroupPrepend" v-model="accountData.username" required>
                                 <div class="invalid-feedback">
                                     請輸入帳號。
                                 </div>
@@ -25,7 +25,7 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 <input type="text" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" required>
+                                    aria-describedby="inputGroupPrepend" v-model="accountData.password" required>
                                 <div class="invalid-feedback">
                                     請輸入密碼。
                                 </div>
@@ -47,18 +47,24 @@ import { RouterLink, useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useAccountStore } from '../stores/account.js';
 import axios from 'axios';
+import { accountAPI } from '@/assets/js/function.js';
 
 let router = useRouter();
 let form = ref();
 let accountStore = useAccountStore();
+
+const accountData = ref({
+    username: '',
+    password: '',
+})
 async function login(event) {
     if (!form.value.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
     }else{
-        const BGD = await axios.post('http://localhost:3000/account/login', {
-            username: document.getElementById('validationCustomUsername').value,
-            password: document.getElementById('validationCustomUsername').value
+        const BGD = await axios.post(accountAPI("login"), {
+            username: accountData.value.username,
+            password: accountData.value.password
         },{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -66,6 +72,12 @@ async function login(event) {
         }).catch(error => {
             console.log(error)
         })
+        if(BGD.data.status == 200){
+            console.log(BGD.data.data);
+            
+        }else{
+            console.log(BGD.data.message);
+        }
         console.log(BGD);
     }
     form.value.classList.add('was-validated')

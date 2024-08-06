@@ -130,7 +130,7 @@ import { ref, computed } from 'vue';
 
 const accountStore = useAccountStore();
 const isLogin = computed(() => {
-    return accountStore.account;
+    return accountStore.account.name;
 })
 
 const showACC = ref(false);
