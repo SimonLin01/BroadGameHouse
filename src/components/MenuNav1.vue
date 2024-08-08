@@ -1,11 +1,12 @@
-<template >
+<template>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <div class="container px-4 px-lg-5">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
+        <div class="container px-4 px-lg-5 position-relative">
             <a class="navbar-brand" href="#!">桌遊小屋</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                    class="navbar-toggler-icon"></span></button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <RouterLink to="/">
@@ -92,10 +93,13 @@
                     </RouterLink>
                 </form>
                 <form class="d-flex" v-else>
-                    <button class="btn" type="button" @click="!showACC">
-                        <img class="rounded-circle" src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50" height="50" alt="" srcset="">
+                    <button class="btn" type="button" @click="showACC = !showACC">
+                        <img class="rounded-circle"
+                            src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50"
+                            height="50" alt="" srcset="">
                     </button>
                 </form>
+
                 <form class="d-flex">
                     <RouterLink to="/Cart">
                         <button class="btn btn-outline-dark" type="submit">
@@ -107,36 +111,87 @@
                 </form>
             </div>
         </div>
+        <div class="position-absolute end-0 top-100 translate-middle-x" v-if="isLogin">
+            <div class="bg-white tw-w-[10rem] " v-show="showACC">
+                <RouterLink to="/MainAccount/Account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                    個人帳號
+                </RouterLink>
+                <RouterLink to="/Admin/Admin" class="btn btn-outline-secondary btn-lg fw-bold w-100"
+                    v-if="isLogin.isAdmin == 0">
+                    管理後臺
+                </RouterLink>
+                <RouterLink to="/isLogout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                    登出
+                </RouterLink>
+            </div>
+        </div>
     </nav>
 
-    <div class="position-absolute end-0 top-100" v-if="isLogin">
-        <div class="bg-white tw-w-[10rem]" v-show="showACC">
-            <RouterLink to="/MainAccount/Account" class="btn btn-outline-secondary btn-lg fw-bold w-100">
-                個人帳號
-            </RouterLink>
-            <RouterLink to="/Admin/Admin" class="btn btn-outline-secondary btn-lg fw-bold w-100" v-if="isLogin.isAdmin == 0">
-                管理後臺
-            </RouterLink>
-            <RouterLink to="/isLogout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
-                登出
-            </RouterLink>
+
+    <!-- <form class="d-flex" v-else>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" v-if="!isLogin">
+        <div class="container px-4 px-lg-5" v-show="!showACC">
+            <a class="navbar-brand" href="#!">桌遊小屋</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <RouterLink to="/">
+                        <li class="nav-item"><span class="nav-link" aria-current="page">返回首頁</span></li>
+                    </RouterLink>
+                    <RouterLink to="/Admin/Item">
+                        <li class="nav-item nav-link">商品管理</li>
+                    </RouterLink>
+                    <RouterLink to="/Admin/Order">
+                        <li class="nav-item nav-link">訂單管理</li>
+                    </RouterLink>
+                    <RouterLink to="/Admin/Comment">
+                        <li class="nav-item nav-link">留言板</li>
+                    </RouterLink>
+                </ul>
+            </div>
         </div>
-    </div>
+    </nav>
+    </form> -->
 </template>
 <script setup>
-import { RouterView, RouterLink } from 'vue-router';
+import { RouterView, RouterLink, useRouter } from 'vue-router';
 import { useAccountStore } from '@/stores/account';
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
+import { storeToRefs } from 'pinia';
 
 const accountStore = useAccountStore();
 const isLogin = computed(() => {
-    return accountStore.account.name;
+    return accountStore.account.token;
 })
 
 const showACC = ref(false);
+
+const router = useRouter();
+
+function account() {
+    if (!accountStore.account) {
+        router.push('/login');
+    } else {
+        showACC.value = !showACC.value;
+    }
+}
+
+
+watch(useRouter(), (newValue) => {
+    // thisRouter.value = newValue.query.type || "";
+    // search.value = "";
+    showACC.value = false
+}, { immediate: true });
+
 </script>
 <style lang="scss" scoped>
 .router-link-active {
     background-color: #b6d3f0;
 }
-</style>
+
+// .endplace {
+//       translate: 0%;
+//       }</style>

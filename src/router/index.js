@@ -10,6 +10,9 @@ import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
 import CISView from '../views/CISView.vue'
 
+import { useAccountStore } from '../stores/account'
+
+
 
 const router = createRouter({
     // history: createWebHistory(
@@ -60,4 +63,24 @@ const router = createRouter({
     }]
 })
 
+router.beforeEach((to, from, next) => {
+
+    const accountStore = useAccountStore();
+
+    if(to.path !== "/signup"){
+        next();
+    } 
+    else {next()};
+})
+
+
+router.beforeEach((to, from, next) => {
+
+    const accountStore = useAccountStore();
+
+    if(to.path !== "/login"){
+        next();
+    } 
+    else {next()};
+})
 export default router

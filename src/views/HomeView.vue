@@ -27,30 +27,24 @@
         </div>
     </footer>
 </template>
-<script>
+<script setup>
 import { RouterView, RouterLink } from 'vue-router';
 import CardDiv from "../components/CardDiv.vue";
-export default {
-    components: {
-        CardDiv,
-    },
-    data() {
-        return {
-            list: {},
-        }
-    },
-    created() {
+import { useAccountStore } from '@/stores/account';
+import { onMounted, ref } from 'vue';
 
-    },
-    async mounted() {
-        const listURL = new URL("../assets/json/index.json", import.meta.url);
-        const index = await fetch(listURL).then(res => res.json());
+const accountStore = useAccountStore();
 
+const list = ref({});
+onMounted(async () => {
+    const listURL = new URL("../assets/json/index.json", import.meta.url);
+    const index = await fetch(listURL).then(res => res.json());
 
-        this.list = index;
-    },
-}
+    console.log(accountStore.account);
+
+    list.value = index;
+})
 </script>
 <style lang="">
-  
+
 </style>

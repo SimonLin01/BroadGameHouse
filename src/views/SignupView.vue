@@ -6,16 +6,19 @@
           
           <h3>會員註冊</h3>
 
-          <form>
+          <form ref="form" @submit.prevent="login">
             <input type="text" id="fullname" name="fullname" placeholder="使用者全名" v-model="accountData.username" required>
             <div class="tab"></div>
             <input type="text" id="username2" name="username" placeholder="帳號" v-model="accountData.account" required>
             <div class="tab"></div>
             <input type="text" id="password2" name="password" placeholder="密碼" v-model="accountData.password" required>
             <div class="tab"></div>
-            <input type="text" id="comfirm_password" name="comfirm_password" placeholder="確認密碼" required>
+            <input type="text" id="comfirm_password" name="comfirm_password" placeholder="確認密碼" v-model="accountData.comfirm_password" :pattern="accountData.password" required>
             <div class="tab"></div>            
             <input type="submit" value="註冊" class="submit">
+            <div class="text-center">
+              {{ errorText }}
+            </div>
           </form>  
           <RouterLink to="/login">
           <h5>登入帳號</h5>
@@ -26,10 +29,10 @@
 </template>
 <script setup>
 import { RouterLink, useRouter } from 'vue-router';
-import { ref } from 'vue';
 import { useAccountStore } from '../stores/account.js';
 import axios from 'axios';
 import { accountAPI } from '@/assets/js/function.js';
+import { ref } from 'vue';
 
 let router = useRouter();
 let form = ref();
@@ -40,15 +43,20 @@ const accountData = ref({
     account: '',
     password: '',
 })
+const errorText = ref("");
 async function login(event) {
     if (!form.value.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
     }else{
-        const BGD = await axios.post(accountAPI("signup"), {
-            username: accountData.value.username,
+        const BGD = await axios.post(accountAPI("signUp"), {
+            name: accountData.value.username,
             account: accountData.value.account,
             password: accountData.value.password
+        },{
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
         },{
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -56,13 +64,18 @@ async function login(event) {
         }).catch(error => {
             console.log(error)
         })
+
+        if(!BGD){ errorText.value = "伺服器錯誤";return;}
+
         if(BGD.data.status == 200){
-            console.log(BGD.data.data);
+
+            accountStore.account.token = BGD.data.data;
+            router.replace("/");
             
         }else{
-            console.log(BGD.data.message);
+            console.log(BGD.data.message);  
+            errorText.value = BGD.data.message
         }
-        console.log(BGD);
     }
     form.value.classList.add('was-validated')
 }

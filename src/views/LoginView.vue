@@ -11,12 +11,12 @@
                 <div class="container">
                     <h3>登入 Login</h3>
                     <form ref="form" class="row g-3 needs-validation" novalidate @submit.prevent="login">
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <label for="validationCustomUsername" class="form-label">帳號</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 <input type="text" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" v-model="accountData.username" required>
+                                    aria-describedby="inputGroupPrepend" v-model="accountData.account" required>
                                 <div class="invalid-feedback">
                                     請輸入帳號。
                                 </div>
@@ -54,7 +54,7 @@ let form = ref();
 let accountStore = useAccountStore();
 
 const accountData = ref({
-    username: '',
+    account: '',
     password: '',
 })
 async function login(event) {
@@ -63,7 +63,7 @@ async function login(event) {
         event.stopPropagation()
     }else{
         const BGD = await axios.post(accountAPI("login"), {
-            username: accountData.value.username,
+            account: accountData.value.account,
             password: accountData.value.password
         },{
             headers: {
@@ -73,7 +73,8 @@ async function login(event) {
             console.log(error)
         })
         if(BGD.data.status == 200){
-            console.log(BGD.data.data);
+            accountStore.account.token = BGD.data.data;
+            router.replace("/");
             
         }else{
             console.log(BGD.data.message);

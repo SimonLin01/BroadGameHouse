@@ -9,7 +9,10 @@ components:{
 </script>
 
 <template>
-  <MenuNav1></MenuNav1>
+  <div class="container">
+    <MenuNav1></MenuNav1>
+  </div>
+  
 
   <RouterView />
 </template>
