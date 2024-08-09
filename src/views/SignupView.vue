@@ -57,10 +57,6 @@ async function login(event) {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
-        },{
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
         }).catch(error => {
             console.log(error)
         })

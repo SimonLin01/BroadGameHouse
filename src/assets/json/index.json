@@ -6,7 +6,7 @@
             "price": "NT$60.00 - NT$80.00",
             "offer": "NT$60.00 - NT$80.00",
             "gameTag": ["心機遊戲",  "派對遊戲"],
-            "rule": "#",
+            "rule": "@/src/assets/gamerule/EKEK01_RULES_source_CN.pdf",
             "caption": "爆炸貓是一款非常簡單的小品遊戲，曾在Kickstarter募資網站上達到219,382位支持者，而且募到超過870萬美金。它的超高人氣也跟遊戲的繪師Matthew Inmanu有關，魔性又可愛的畫風，大量的黑色幽默，深深抓住不少人的心。銷量超過900萬盒，打破了兒童遊戲，玩家遊戲所有紀錄。"
         },
         {

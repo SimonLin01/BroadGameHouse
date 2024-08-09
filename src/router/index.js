@@ -9,6 +9,7 @@ import CheckoutView from '../views/CheckoutView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
 import CISView from '../views/CISView.vue'
+import LogoutView from '../views/LogoutView.vue'
 
 import { useAccountStore } from '../stores/account'
 
@@ -60,7 +61,11 @@ const router = createRouter({
         path: '/cis',
         name: 'CIS',
         component: CISView
-    }]
+    }, {
+        path: '/logout',
+        name: 'Logout',
+        component: LogoutView
+    }],
 })
 
 router.beforeEach((to, from, next) => {

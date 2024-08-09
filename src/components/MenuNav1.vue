@@ -105,7 +105,6 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             購物車
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
                     </RouterLink>
                 </form>
@@ -120,7 +119,7 @@
                     v-if="isLogin.isAdmin == 0">
                     管理後臺
                 </RouterLink>
-                <RouterLink to="/isLogout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
+                <RouterLink to="/logout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
                     登出
                 </RouterLink>
             </div>
