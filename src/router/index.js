@@ -13,7 +13,7 @@ import LogoutView from '../views/LogoutView.vue'
 
 import { useAccountStore } from '../stores/account'
 import axios from 'axios'
-import { gameAPI, setting } from '@/assets/js/function.js'
+import { gameAPI, setting, accountAPI } from '@/assets/js/function.js'
 
 
 
@@ -76,8 +76,7 @@ router.beforeEach((to, from, next) => {
 
     if (to.path !== "/signup") {
         next();
-    }
-    else { next() };
+    } else { next() };
 })
 
 
@@ -87,60 +86,58 @@ router.beforeEach((to, from, next) => {
 
     if (to.path !== "/login") {
         next();
-    }
-    else { next() };
+    } else { next() };
 })
 
-// router.beforeEach(async (to, from, next) => {
+router.beforeEach(async(to, from, next) => {
 
-//     if (to.path == "item" || to.path == "/") {
-//         let res = await axios.post(gameAPI("getGameId"), { "game_Id": to.query.gameId }, setting).catch((err) => console.log(err))
-//         const data = res.data.data;
-//         to.meta = {
-//             ...to.meta,
-//             title: data.name,
-//             itemData: data,
-//         }
-//     }
+            if (to.path == "item" || to.path == "/") {
+                let res = await axios.post(gameAPI("getGameId"), { "game_Id": to.query.gameId }, setting).catch((err) => console.log(err))
+                const data = res.data.data;
+                to.meta = {
+                    ...to.meta,
+                    itemData: data,
+                }
+            }
 
-//     document.title = `${to.meta.title || `桌遊小屋`}`;
+            document.title = `${to.meta.title || `桌遊小屋`}`;
 
-//     const accountStore = useAccountStore();
+    const accountStore = useAccountStore();
 
-//     accountStore.isAccountAdmin = 1;
+    accountStore.isAccountAdmin = 1;
 
-//     if (to.path != "/logout") {
+    if (to.path != "/logout") {
 
-//         let UUID = accountStore.tk;
-//         const checkLockin = await axios.post(getAccountAPI('checkAccount'),
-//             {
-//                 "token": `Bearer ${UUID}`
-//             }, setting).catch((err) => {
-//                 console.log(err)
-//             });
-//         if (checkLockin) {
-//             if (checkLockin.data.status == 200) {
-//                 accountStore.account = checkLockin.data.data.account;
-//                 if (checkLockin.data.data.permission == 0) {
-//                     accountStore.isAccountAdmin = 0;
-//                     next();
-//                 } else {
-//                     to.meta.isAccountAdmin == "admin" ? next("/") : next();
-//                 }
-//             } else {
-//                 accountStore.account = "";
-//                 accountStore.tk = "";
+        let UUID = accountStore.tk;
+        const checkLockin = await axios.post(accountAPI('checkAccount'),
+            {
+                "token": `Bearer ${UUID}`
+            }, setting).catch((err) => {
+                console.log(err)
+            });
+        if (checkLockin) {
+            if (checkLockin.data.status == 200) {
+                accountStore.account = checkLockin.data.data.account;
+                if (checkLockin.data.data.permission == 0) {
+                    accountStore.isAccountAdmin = 0;
+                    next();
+                } else {
+                    to.meta.isAccountAdmin == "admin" ? next("/") : next();
+                }
+            } else {
+                accountStore.account = "";
+                accountStore.tk = "";
 
-//                 if (to.path != "/logout") {
-//                     accountStore.isAccountAdmin = 2;
-//                 }
-//                 next();
-//             }
-//         }
-//     }
-//     else {
-//         next();
-//     }
-// })
+                if (to.path != "/logout") {
+                    accountStore.isAccountAdmin = 2;
+                }
+                next();
+            }
+        }
+    }
+    else {
+        next();
+    }
+})
 
 export default router

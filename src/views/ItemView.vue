@@ -109,6 +109,8 @@ function DLrule(files) {
     const url = new URL(`../assets/gamerule/${files}`, import.meta.url);
     window.open(url);
 }
+
+
 </script>
 <style lang="">
 
