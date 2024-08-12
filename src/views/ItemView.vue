@@ -32,7 +32,7 @@
                         <p class="card-text">標籤：<a href="#">{{useful.gameTag}}</a></p>
                         <p class="card-text">遊戲說明：
                             <!-- {{useful.rule}} -->
-                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="DLrule(file)">
                                 點我
                             </button>
                         </p>
@@ -83,30 +83,24 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
+import { ref } from 'vue';
 
-export default {
-    data() {
-        return {
-            pdfsrc: '/src/assets/gamerule',
-            useful: {
 
-            }
+const pdfsrc = ref('/src/assets/gamerule');
+const useful  = ref({});
+
+const Jdon = new URL('../assets/json/index.json', import.meta.url);
+    await fetch(Jdon).then(res => res.json()).then(data => {
+        let MayDay = data.Home.filter(item => item.id == this.$route.query.userID);
+        for (let i = 0; i < MayDay[0].img.length; i++) {
+            MayDay[0].img[i] = new URL(`../assets/image/${MayDay[0].img[i]}`, import.meta.url);
         }
-    },
-    async created() {
-        const Jdon = new URL('../assets/json/index.json', import.meta.url);
-        await fetch(Jdon).then(res => res.json()).then(data => {
-            let MayDay = data.Home.filter(item => item.id == this.$route.query.userID);
-            for (let i = 0; i < MayDay[0].img.length; i++) {
-                MayDay[0].img[i] = new URL(`../assets/image/${MayDay[0].img[i]}`, import.meta.url);
-            }
-            this.useful = MayDay[0];
-        })
-    },
-    mounted() {
+        useful.value = MayDay[0];
+    })
 
-    }
+function DLrule(files) {
+    window.open(files);
 }
 </script>
 <style lang="">

@@ -108,6 +108,21 @@
                         </button>
                     </RouterLink>
                 </form>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">成果發表</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <RouterLink to="/">
+                                <li class="dropdown-item">電子書</li>
+                            </RouterLink>
+                            <RouterLink to="/">
+                                <li class="dropdown-item">專題說明</li>
+                            </RouterLink>
+                            <RouterLink to="/">
+                                <li class="dropdown-item">專題錄影</li>
+                            </RouterLink>
+                        </ul>
+                </li>
             </div>
         </div>
         <div class="position-absolute end-0 top-100 translate-middle-x" v-if="isLogin">
