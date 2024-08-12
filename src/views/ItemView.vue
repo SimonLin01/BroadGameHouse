@@ -46,46 +46,12 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row mt-5">
-            <div class="bg-white p-4 w-100 rounded-4">
-                <p><h3>評論</h3></p>
-                <div class=px-md-3>
-                    <div class="d-flex align-item-start mt-2">
-                        <img class="rounded-circle" src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50" height="50">
-                        <div>
-                            <div>
-                                <p class="h4 ps-2 pt-2 fw-bolder">壹號</p>
-                                <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio beatae voluptatibus unde voluptas labore doloremque temporibus omnis sequi expedita fuga ex, odit impedit eius molestias, culpa quidem explicabo. Dolores, obcaecati</p>
-                                <div class="d-flex">
-                                    <button type="button" class="btn">
-
-                                    </button>
-                                    <button type="button" class="btn">
-
-                                    </button>
-                                    <button type="button" class="btn">
-                                        <span>回覆</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="d-flex align-item-start mt-2">
-                                <img class="rounded-circle" src="../assets/image/7853767_kashifarif_user_profile_person_account_icon.png" width="50" height="50">
-                                <div>
-                                    <p class="h4 ps-2 pt-2 fw-bolder">貳號</p>
-                                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam obcaecati adipisci nisi ipsam quis sint perspiciatis, praesentium aperiam neque consequuntur ab excepturi necessitatibus laudantium, vel minima ea voluptates asperiores vero?</p>
-                                </div>
-                            </div>
-                        </div>                                           
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <MessageBoard ref="messageBoardDiv" :isbuy="true" />
 </template>
 <script setup>
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import MessageBoard from '../components/MessageBoard.vue';
 
 
 const pdfsrc = ref('/src/assets/gamerule');
