@@ -4,9 +4,9 @@
         <div>
             <div>
                 <button @click="mails = 'mailsout'" class="btn btn-primary btn-lg mt-3" type="button">貨到付款</button>
-                <RouterLink to="/cis">
+                <!-- <RouterLink to="/cis">
                     <button @click="mails = 'CIS'" class="btn btn-danger btn-lg mt-3" type="button">超商取貨付款</button>
-                </RouterLink>
+                </RouterLink> -->
                 <button @click="mails = 'card'" class="btn btn-success btn-lg mt-3" type="button">信用卡</button>
             </div>
             <form ref="form" class="row g-3 needs-validation mt-3 mb-3 text-same" novalidate @submit.prevent="mail">

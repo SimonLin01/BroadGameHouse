@@ -1,4 +1,4 @@
-const dataAPI = "http://tablerolegame0730.42web.io/BDG/php";
+const dataAPI = "http://localhost/BDGamephp/BDGame_Store";
 
 export function accountAPI(api){
     return `${dataAPI}/account/${api}.php`;
@@ -8,3 +8,12 @@ export function adminAPI( folder,api){
     return `${dataAPI}/${folder}/${api}.php`;
 }
 
+export function gameAPI(api){
+    return `${dataAPI}/game/${api}.php`;
+}
+
+export const setting = {
+    headers: {
+        "Content-Type": "x-www-form-urlencoded",
+    },
+};
