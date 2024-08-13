@@ -48,10 +48,12 @@ import { ref } from 'vue';
 import { useAccountStore } from '../stores/account.js';
 import axios from 'axios';
 import { accountAPI } from '@/assets/js/function.js';
+import { storeToRefs } from 'pinia';
 
 let router = useRouter();
 let form = ref();
 let accountStore = useAccountStore();
+let { name , token} = storeToRefs(accountStore);
 
 const accountData = ref({
     account: '',
@@ -73,7 +75,9 @@ async function login(event) {
             console.log(error)
         })
         if(BGD.data.status == 200){
-            accountStore.account.token = BGD.data.data;
+            console.log(BGD.data.data);
+            
+            token.value = BGD.data.data;
             router.replace("/");
             
         }else{

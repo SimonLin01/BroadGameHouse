@@ -4,7 +4,7 @@
             <p class="h3">評論</p>
             <div class="px-md-3" v-if="Object.keys(messageList).length">
                 <div class="d-flex align-items-start mt-2" v-for="(item1, index1) in messageList" :key="item1.id">
-                    <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
+                    <img class="rounded-circle" src="../assets/image/account.png" width="50" alt="" />
                     <div class="w-100">
                         <p class="h4 ps-2 pt-2 fw-bolder">{{ item1.name }}</p>
                         <pre class="ms-2 tw-text-[22px]" v-html="item1.text"></pre>
@@ -23,7 +23,7 @@
                         <form ref="essy" action="" class="mt-2" v-show="reoly == index1"
                             @submit.prevent="addMessage(reolyText, item1.id)">
                             <div class="d-flex align-items-start">
-                                <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
+                                <img class="rounded-circle" src="../assets/image/account.png" width="50" alt="" />
                                 <textarea class="form-control reply" placeholder="輸入回覆" ref="reolyForm"
                                     v-model="reolyText"></textarea>
                             </div>
@@ -39,7 +39,7 @@
                         </form>
                         <div class="d-flex align-items-start mt-2" v-for="(item2, index2) in item1.replyUser"
                             :key="item2.id">
-                            <img class="rounded-circle" src="../assets/img/account.png" width="50" alt="" />
+                            <img class="rounded-circle" src="../assets/image/account.png" width="50" alt="" />
                             <div>
                                 <p class="h4 ps-2 pt-2 fw-bolder">{{ item2.name }}</p>
                                 <pre class="ms-2 tw-text-[22px]" v-html="item2.text"></pre>

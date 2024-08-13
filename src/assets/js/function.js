@@ -14,6 +14,6 @@ export function gameAPI(api){
 
 export const setting = {
     headers: {
-        "Content-Type": "x-www-form-urlencoded",
+        "Content-Type": "application/x-www-form-urlencoded",
     },
 };

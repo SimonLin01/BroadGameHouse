@@ -10,6 +10,8 @@ import LoginView from '../views/LoginView.vue'
 import SignupView from '../views/SignupView.vue'
 // import CISView from '../views/CISView.vue'
 import LogoutView from '../views/LogoutView.vue'
+import ReplyShow from '../views/ReplyShow.vue'
+import ShowMessage from '../views/ShowMessage.vue'
 
 import { useAccountStore } from '../stores/account'
 import axios from 'axios'
@@ -67,6 +69,14 @@ const router = createRouter({
         path: '/logout',
         name: 'Logout',
         component: LogoutView
+    }, {
+        path: '/reply',
+        name: 'ReplyShow',
+        component: ReplyShow
+    }, {
+        path: '/message',
+        name: 'ShowMessage',
+        component: ShowMessage
     }],
 })
 
@@ -104,11 +114,13 @@ router.beforeEach(async(to, from, next) => {
 
     const accountStore = useAccountStore();
 
-    accountStore.isAccountAdmin = 1;
+    accountStore.isAdmin = 1;
 
     if (to.path != "/logout") {
 
-        let UUID = accountStore.tk;
+        let UUID = accountStore.token;
+        console.log(UUID);
+        
         const checkLockin = await axios.post(accountAPI('checkAccount'),
             {
                 "token": `Bearer ${UUID}`
@@ -119,17 +131,19 @@ router.beforeEach(async(to, from, next) => {
             if (checkLockin.data.status == 200) {
                 accountStore.account = checkLockin.data.data.account;
                 if (checkLockin.data.data.permission == 0) {
-                    accountStore.isAccountAdmin = 0;
+                    accountStore.isAdmin = 0;
                     next();
                 } else {
                     to.meta.isAccountAdmin == "admin" ? next("/") : next();
                 }
             } else {
                 accountStore.account = "";
-                accountStore.tk = "";
+                accountStore.token = "";
+                console.log(checkLockin);
+                
 
-                if (to.path != "/logout") {
-                    accountStore.isAccountAdmin = 2;
+                if (to.path == "/logout") {
+                    accountStore.isAdmin = 2;
                 }
                 next();
             }

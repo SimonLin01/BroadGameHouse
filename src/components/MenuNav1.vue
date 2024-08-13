@@ -91,18 +91,18 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">成果發表</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <RouterLink to="/">
+                            <button @click="onfile('ebook')">
                                 <li class="dropdown-item">電子書</li>
-                            </RouterLink>
-                            <RouterLink to="/">
+                            </button>
+                            <button @click="onfile('ppt')">
                                 <li class="dropdown-item">專題說明</li>
-                            </RouterLink>
-                            <RouterLink to="/">
+                            </button>
+                            <button @click="onfile('video')">
                                 <li class="dropdown-item">專題錄影</li>
-                            </RouterLink>
-                            <RouterLink to="/">
+                            </button>
+                            <button @click="onfile('poster')">
                                 <li class="dropdown-item">專題海報</li>
-                            </RouterLink>
+                            </button>
                         </ul>
                 </li>
                 </ul>
@@ -139,7 +139,7 @@
                     個人帳號
                 </RouterLink>
                 <RouterLink to="/Admin/Admin" class="btn btn-outline-secondary btn-lg fw-bold w-100"
-                    v-if="isLogin.isAdmin == 0">
+                    v-if="accountStore.isAdmin == 0">
                     管理後臺
                 </RouterLink>
                 <RouterLink to="/logout" class="btn btn-outline-secondary btn-lg fw-bold w-100">
@@ -179,14 +179,15 @@
     </form> -->
 </template>
 <script setup>
-import { RouterView, RouterLink, useRouter } from 'vue-router';
+import { RouterView, RouterLink, useRouter, useRoute } from 'vue-router';
 import { useAccountStore } from '@/stores/account';
 import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
 const accountStore = useAccountStore();
+const { name, token } = storeToRefs(accountStore);
 const isLogin = computed(() => {
-    return accountStore.account.token;
+    return token.value;
 })
 
 const showACC = ref(false);
@@ -201,8 +202,25 @@ function account() {
     }
 }
 
+function onfile(type) {
+    const href = "https://localhost:3000/index.html"
+    switch (type){
+        case 'ebook':
+            window.location.href = '/src/assets/ebook/ebook.html';
+            break;
+        case 'ppt':
+            window.location.href = '/src/assets/ppt/index.html';
+            break;
+        case 'video':
+            window.location.href = '/src/assets/video/index.html';
+            break;
+        case 'poster':
+            window.location.href = '/src/assets/a1海報.jpg';
+            break;
+    }
+}   
 
-watch(useRouter(), (newValue) => {
+watch(useRoute(), (newValue) => {
     // thisRouter.value = newValue.query.type || "";
     // search.value = "";
     showACC.value = false

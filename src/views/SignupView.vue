@@ -65,7 +65,7 @@ async function login(event) {
 
         if(BGD.data.status == 200){
 
-            accountStore.account.token = BGD.data.data;
+            accountStore.token = BGD.data.data;
             router.replace("/");
             
         }else{

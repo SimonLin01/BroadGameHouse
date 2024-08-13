@@ -15,7 +15,7 @@ const accountStore = useAccountStore();
 const router = useRouter();
 
 function logout(time) {
-    accountStore.tk = '';
+    accountStore.token = '';
     accountStore.account = '';
     setTimeout(() => {
         router.push('/');
