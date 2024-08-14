@@ -40,7 +40,7 @@
                         <RouterLink to="/cart">
                         <button class="btn btn-primary btn-lg">加入購物車</button>
                         </RouterLink>
-                        <p class="card-text"><small class="text-muted">商品圖片井供參考，一切以實物為準</small></p>
+                        <p class="card-text"><small class="text-muted">商品圖片僅供參考，一切以實物為準</small></p>
                     </div>
                 </div>
             </div>
