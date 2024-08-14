@@ -211,7 +211,7 @@ function onfile(type) {
             window.location.href = '#';
             break;
         case 'video':
-            window.location.href = '#';
+            window.location.href = new URL("../assets/image/113-1-13.ecm.mp4/index.html",import.meta.url);
             break;
         case 'poster':
             window.location.href = new URL("../assets/image/a1海報.jpg",import.meta.url);
