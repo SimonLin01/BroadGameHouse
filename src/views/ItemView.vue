@@ -30,7 +30,7 @@
                         <hr>
                         <p class="card-text">{{useful.caption}}</p>
                         <p class="card-text">標籤：<a href="#">{{useful.gameTag}}</a></p>
-                        <p class="card-text">遊戲說明：
+                        <p class="card-text" v-if="useful.rule">遊戲說明：
                             <!-- {{useful.rule}} -->
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" @click="DLrule(useful.rule)">
                                 點我

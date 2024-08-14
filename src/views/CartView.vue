@@ -3,7 +3,7 @@
         <h1>購物車</h1>
         <p>商品確認</p>
     </div>
-    <div class="card mb-3" v-for="(item, index) in list" :key="index">
+    <div v-show="list.length" class="card mb-3" v-for="(item, index) in list" :key="index">
         <div class="row g-0">
             <div class="col-md-4">
                 <img :src="item.img" class="img-fluid rounded-start">
@@ -21,14 +21,14 @@
                 </div>
             </div>
         </div>
-    </div>ws
-    <div class="text-center">
+    </div>
+    <div class="text-center" v-show="list.length">
         <h3>總金額：NT${{ total }}</h3>
         <RouterLink to="/checked">
             <button class="btn btn-primary btn-lg mt-3" type="button">確認結帳</button>
         </RouterLink>
     </div>
-    <div v-show="list.length == 0" class="text-center">
+    <div v-show="!list.length" class="text-center">
         <h3>這裡真是空曠</h3>
         <p>快去挑選新商品來填滿這裡</p>
         <RouterLink to="/allgame">
