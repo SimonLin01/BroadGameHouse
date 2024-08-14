@@ -1277,8 +1277,8 @@
 .audio-player {}
 /* start of skin1 */
 .audio-player.skin1{
-	position : relative,
-	background : #7b796f
+	position : relative;
+	background : #7b796f;
 }
 
 .audio-player.skin1 .back_button{
@@ -1398,8 +1398,8 @@
 
 /* start of skin2 */
 .audio-player.skin2{
-	position : relative,
-	background : #7b796f
+	position : relative;
+	background : #7b796f;
 }
 
 .audio-player.skin2 .back_button{
