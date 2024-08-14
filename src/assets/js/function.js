@@ -1,4 +1,4 @@
-const dataAPI = "http://site02.web.digital.gov.tw/113-1-13";
+const dataAPI = "http://site02.web.digital.gov.tw/113-1-13/php";
 
 export function accountAPI(api){
     return `${dataAPI}/account/${api}.php`;

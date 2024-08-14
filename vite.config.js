@@ -6,7 +6,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  publicPath: '/113-1-13',
+  publicPath: '/',
   plugins: [
     vue(),
     VueDevTools(),

@@ -208,7 +208,7 @@ function onfile(type) {
             window.location.href = new URL("../assets/image/ebook/ebook.html",import.meta.url);
             break;
         case 'ppt':
-            window.location.href = new URL ("../assets/image/BDG/BDG.html",import.meta.url);
+            window.location.href = new URL ("../assets/image/桌遊小屋.pdf",import.meta.url);
             break;
         case 'video':
             window.location.href = new URL("../assets/image/113-1-13.ecm.mp4/index.html",import.meta.url);
