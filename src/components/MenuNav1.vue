@@ -205,7 +205,7 @@ function account() {
 function onfile(type) {
     switch (type){
         case 'ebook':
-            window.location.href = new URL("../assets/ebook/ebook.html",import.meta.url);
+            window.location.href = new URL("../assets/image/ebook/ebook.html",import.meta.url);
             break;
         case 'ppt':
             window.location.href = '#';
@@ -214,7 +214,7 @@ function onfile(type) {
             window.location.href = '#';
             break;
         case 'poster':
-            window.location.href = new URL("../assets/a1海報.jpg",import.meta.url);
+            window.location.href = new URL("../assets/image/a1海報.jpg",import.meta.url);
             break;
     }
 }   
