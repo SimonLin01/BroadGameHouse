@@ -1,4 +1,4 @@
-const dataAPI = "http:/http://tablerolegame0730.42web.io/PHP/";
+const dataAPI = "http://tablerolegame0730.42web.io/PHP/";
 
 export function accountAPI(api){
     return `${dataAPI}/account/${api}.php`;
