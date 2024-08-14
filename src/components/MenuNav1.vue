@@ -203,19 +203,18 @@ function account() {
 }
 
 function onfile(type) {
-    const href = "https://localhost:3000/index.html"
     switch (type){
         case 'ebook':
-            window.location.href = '/src/assets/ebook/ebook.html';
+            window.location.href = new URL("../assets/ebook/ebook.html",import.meta.url);
             break;
         case 'ppt':
-            window.location.href = '/src/assets/ppt/index.html';
+            window.location.href = '#';
             break;
         case 'video':
-            window.location.href = '/src/assets/video/index.html';
+            window.location.href = '#';
             break;
         case 'poster':
-            window.location.href = '/src/assets/a1海報.jpg';
+            window.location.href = new URL("../assets/a1海報.jpg",import.meta.url);
             break;
     }
 }   
